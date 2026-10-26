@@ -6,3 +6,4 @@ build.py
 *.pdf
 propuesta-pdf*.html
 build-pdf.py
+opciones/
