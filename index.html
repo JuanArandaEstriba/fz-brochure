@@ -23,6 +23,8 @@
   --negro:#070706; --grafito:#212427; --gris:#888D88; --piedra:#D3D0CB;
   --papel:#F2F1EE; --blanco:#fff; --carbon:#111110;
   --gut:clamp(22px,4.4vw,84px); --rad:4px;
+  /* tono de foto: blanco y negro con un calor muy sutil hacia el piedra #D3D0CB */
+  --foto:grayscale(1) sepia(.17) hue-rotate(-8deg) saturate(.8) contrast(1.06) brightness(.92);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden;background:var(--negro)}
@@ -65,13 +67,13 @@ b,strong{font-weight:500}
 .d7{animation-delay:.75s!important}.d8{animation-delay:.87s!important}
 /* fotos: blanco y negro + acercamiento lento al entrar */
 .ph{overflow:hidden;position:relative;background:#1a1a19}
-.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08) brightness(.92);transform:scale(1.08)}
+.ph img{width:100%;height:100%;object-fit:cover;filter:var(--foto);transform:scale(1.08)}
 .s.on .ph img{animation:kb 2.4s cubic-bezier(.2,.7,.2,1) forwards}
 /* al pasar el mouse la foto recupera su color (en touch se quedan en B/N) */
 .ph img{transition:filter .6s ease}
 @media (hover:hover){
   .ph:hover img,.caso:hover .ph img,.pain:hover .ph img{filter:none}
-  .cover .bg:hover img{filter:grayscale(1) contrast(1.06) brightness(.9)}
+  .cover .bg:hover img{filter:var(--foto)}
 }
 @keyframes kb{to{transform:scale(1)}}
 
@@ -90,7 +92,7 @@ b,strong{font-weight:500}
 
 /* 01 · portada */
 .cover .bg{position:absolute;inset:0;z-index:0;border-radius:0}
-.cover .bg img{object-position:60% 40%;filter:grayscale(1) contrast(1.06) brightness(.9)}
+.cover .bg img{object-position:60% 40%;filter:var(--foto)}
 .cover .veil{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,7,6,.86),rgba(7,7,6,.5) 55%,rgba(7,7,6,.25)),
              linear-gradient(0deg,rgba(7,7,6,.6),transparent 45%),linear-gradient(180deg,rgba(7,7,6,.45),transparent 22%)}
 .cover .body{position:relative;z-index:3;margin-top:auto;margin-bottom:clamp(22px,4vh,48px)}
@@ -169,7 +171,7 @@ b,strong{font-weight:500}
 
 /* 08 · cierre */
 .cierre .circ{position:absolute;right:-4vw;top:-10vh;width:min(40vw,64vh);aspect-ratio:1;border-radius:50%;z-index:0}
-.cierre .circ img{filter:grayscale(1) contrast(1.05)}
+.cierre .circ img{filter:var(--foto)}
 .cierre .head{position:relative;z-index:2;margin-top:auto}
 .pasos{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,34px);margin-top:clamp(22px,4.4vh,52px);position:relative;z-index:2}
 .paso{position:relative;padding-top:clamp(16px,2.4vh,26px)}
