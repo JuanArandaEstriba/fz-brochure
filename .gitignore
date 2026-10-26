@@ -7,3 +7,5 @@ build.py
 propuesta-pdf*.html
 build-pdf.py
 opciones/
+pdf.src.html
+pdf-build.html
